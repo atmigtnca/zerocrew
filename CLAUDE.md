@@ -35,16 +35,29 @@
 - 모든 에이전트는 작업 전 반드시 `brief.md`를 먼저 읽음.
 - brief.md가 비어있으면 에이전트가 작업을 거부하고 작성을 안내함.
 
+## 디렉터리 구조
+```
+brief.md                 ← 모든 작업의 출발점
+versions/
+  A/drafts/00~04.md      ← 팀원 A의 전체 사업계획서
+  B/drafts/00~04.md      ← 팀원 B의 전체 사업계획서
+  C/drafts/00~04.md      ← 팀원 C의 전체 사업계획서
+  D/drafts/00~04.md      ← 팀원 D의 전체 사업계획서
+drafts/                  ← plan-selector가 선정한 최종 섹션 조합
+final/                   ← integrator가 통합한 최종본
+research/                ← 리서치 산출물
+```
+
 ## 워크플로우
-0. **브리프 작성** — `brief.md`에 아이템 정보, 팀 정보 채우기
-1. **리서치** — market-researcher, strategy-advisor 에이전트로 시장/경쟁 조사 → `research/`에 저장
-2. **초안 작성** — `drafts/` 각 섹션 파일에 내용 채우기
-3. **검토** — document-reviewer 에이전트로 품질/일관성 체크
-4. **통합** — integrator 에이전트로 `final/사업계획서.md` 생성
-5. **변환** — hwpx MCP 서버로 최종 hwpx 파일 생성
+0. **브리프 작성** — `brief.md`에 아이템 정보, 팀 정보 채우기 (전원 함께)
+1. **각자 작성** — 각 팀원이 `versions/X/drafts/`에 전체 사업계획서를 독립 작성
+2. **비교 선정** — plan-selector 에이전트가 4개 버전을 스토리 중심으로 비교, 베스트 조합 선정
+3. **최종 통합** — integrator 에이전트가 선정된 조합을 `final/사업계획서.md`로 통합
+4. **검토** — document-reviewer 에이전트로 품질/일관성 체크
+5. **변환** — hwpx-converter 에이전트로 최종 hwpx 파일 생성
 
 ## 에이전트 & 스킬
-- `.claude/agents/` — 전문 서브에이전트 6종 (시장조사, 전략, 재무, 검토, 통합, hwpx변환)
+- `.claude/agents/` — 전문 서브에이전트 7종 (시장조사, 전략, 재무, 검토, 버전비교, 통합, hwpx변환)
 - `.claude/skills/` — 도메인 지식 스킬 5종 (시장조사, 경쟁분석, 재무, 문서품질, hwpx변환)
 - 자연스럽게 작업하면 관련 스킬이 자동 트리거됨
 
