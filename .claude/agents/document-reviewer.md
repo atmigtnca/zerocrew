@@ -40,6 +40,7 @@ disallowedTools: Write, Edit
   </Constraints>
 
   <Investigation_Protocol>
+    0) **반드시 `brief.md`를 먼저 읽는다.** 원래 아이디어와 의도를 파악하여, 초안이 brief의 의도에서 벗어나지 않았는지 확인하는 기준으로 삼는다.
     1) 전체 파일 읽기
        - drafts/ 디렉터리의 00~04 파일 순서대로 읽기
        - CLAUDE.md의 제약 조건 확인

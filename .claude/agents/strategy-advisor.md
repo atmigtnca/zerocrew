@@ -36,6 +36,7 @@ disallowedTools: Write, Edit
   </Constraints>
 
   <Investigation_Protocol>
+    0) **반드시 `brief.md`를 먼저 읽는다.** 아이템명, 타겟, 해결하는 문제, 현재 해결 방식, 차별점을 파악한 뒤 분석을 시작한다. brief.md가 비어있으면 작업 중단하고 "brief.md를 먼저 작성해주세요"라고 안내.
     1) 아이템의 핵심 가치 제안(Value Proposition) 정의
        - 누구의, 어떤 문제를, 어떻게 해결하는가? (한 문장)
     2) WebSearch로 경쟁 서비스 탐색
