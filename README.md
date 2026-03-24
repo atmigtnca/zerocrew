@@ -17,7 +17,7 @@ claude                          # Claude Code 실행
 ## 어떻게 동작하나요?
 
 ```
-brief.md (아이디어)
+plan.md (아이디어)
     ↓
 4명이 각자 전체 사업계획서 작성 (AI 에이전트 지원)
     ↓
@@ -34,7 +34,7 @@ hwpx-converter가 제출용 한글 파일 생성
 
 | 시간 | 단계 | 누가 | 무엇을 |
 |------|------|------|--------|
-| **0~10분** | 브리프 | 전원 | `brief.md`에 아이디어, 팀 정보 채우기 |
+| **0~10분** | 브리프 | 전원 | `plan.md`에 아이디어, 팀 정보 채우기 |
 | **10~40분** | 리서치 | 각자 | AI에게 시장조사/경쟁분석 요청 |
 | **40~80분** | 초안 작성 | 각자 | `versions/X/drafts/`에 전체 5개 섹션 작성 |
 | **80~100분** | 비교 선정 | PM | 4개 버전 스토리 비교 → 베스트 조합 |
@@ -48,7 +48,7 @@ hwpx-converter가 제출용 한글 파일 생성
 
 ### STEP 0. 브리프 작성 (전원, 0~10분)
 
-`brief.md`를 열고 함께 채웁니다. 이 파일이 모든 AI 작업의 입력입니다.
+`plan.md`를 열고 함께 채웁니다. 이 파일이 모든 AI 작업의 입력입니다.
 
 ```
 필수 항목:
@@ -66,12 +66,12 @@ hwpx-converter가 제출용 한글 파일 생성
 
 한 번에 전체 작성:
 ```
-"brief.md 읽고 versions/A/drafts/ 에 전체 사업계획서 작성해줘"
+"plan.md 읽고 versions/A/drafts/ 에 전체 사업계획서 작성해줘"
 ```
 
 또는 섹션별로 나눠서:
 ```
-"brief.md 기반으로 versions/A/drafts/00-아이템개요.md 작성해줘"
+"plan.md 기반으로 versions/A/drafts/00-아이템개요.md 작성해줘"
 "시장조사해줘"                    ← market-researcher 에이전트 동작
 "경쟁사 분석해줘"                  ← strategy-advisor 에이전트 동작
 "versions/A/drafts/02-문제인식.md 작성해줘"
@@ -110,7 +110,7 @@ hwpx-converter가 제출용 한글 파일 생성
 
 ```
 zerocrew/
-├── brief.md                       ← 모든 작업의 출발점
+├── plan.md                       ← 모든 작업의 출발점
 │
 ├── versions/                      ← 각 팀원의 독립 버전
 │   ├── A/drafts/00~04.md

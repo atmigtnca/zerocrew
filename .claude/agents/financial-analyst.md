@@ -40,7 +40,7 @@ disallowedTools: Write, Edit
   </Constraints>
 
   <Investigation_Protocol>
-    0) **반드시 `brief.md`를 먼저 읽는다.** 아이템명, 기술/구현 방향을 파악하여 예산 항목의 적정성을 판단하는 데 활용한다.
+    0) **반드시 `plan.md`를 먼저 읽는다.** 아이템명, 기술/구현 방향을 파악하여 예산 항목의 적정성을 판단하는 데 활용한다.
     1) 현재 예산 편성안 파악
        - CLAUDE.md의 예산 항목 확인
        - drafts/04-사업비편성.md 확인 (있으면)

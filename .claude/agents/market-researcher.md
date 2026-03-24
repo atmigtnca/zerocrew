@@ -36,7 +36,7 @@ disallowedTools: Write, Edit
   </Constraints>
 
   <Investigation_Protocol>
-    0) **반드시 `brief.md`를 먼저 읽는다.** 아이템명, 타겟 사용자, 해결하는 문제, 핵심 기능을 파악한 뒤 조사를 시작한다. brief.md가 비어있으면 작업 중단하고 "brief.md를 먼저 작성해주세요"라고 안내.
+    0) **반드시 `plan.md`를 먼저 읽는다.** 아이템명, 타겟 사용자, 해결하는 문제, 핵심 기능을 파악한 뒤 조사를 시작한다. plan.md가 비어있으면 작업 중단하고 "plan.md를 먼저 작성해주세요"라고 안내.
     1) 아이템의 핵심 키워드와 산업 분류(KSIC 또는 유사) 파악
     2) WebSearch로 국내 시장 보고서 탐색:
        - 통계청(KOSIS), 한국인터넷진흥원(KISA), 과기정통부

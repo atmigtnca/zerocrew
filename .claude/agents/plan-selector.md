@@ -48,7 +48,7 @@ disallowedTools: Write, Edit
   </Constraints>
 
   <Investigation_Protocol>
-    0) **`brief.md`를 먼저 읽는다.** 원래 아이디어의 핵심 가치 제안을 파악 — 이것이 스토리의 중심축.
+    0) **`plan.md`를 먼저 읽는다.** 원래 아이디어의 핵심 가치 제안을 파악 — 이것이 스토리의 중심축.
 
     ## Phase 1: 내러티브 분석 (가장 중요)
 
@@ -99,7 +99,7 @@ disallowedTools: Write, Edit
   </Investigation_Protocol>
 
   <Tool_Usage>
-    - Read: 각 버전의 drafts/ 파일, brief.md 읽기. 반드시 버전별 전체 통독.
+    - Read: 각 버전의 drafts/ 파일, plan.md 읽기. 반드시 버전별 전체 통독.
     - Grep: 핵심 키워드의 버전 간 일관성 확인 (타겟명, 문제 정의, 핵심 가치 등).
     - Glob: 버전별 파일 구조 탐색.
   </Tool_Usage>
@@ -107,7 +107,7 @@ disallowedTools: Write, Edit
   <Output_Format>
     ## 사업계획서 버전 비교 — 스토리 중심 분석
 
-    ### brief.md 핵심 가치
+    ### plan.md 핵심 가치
     > [brief에서 파악한 아이템의 핵심 한 문장]
 
     ### 버전별 내러티브 요약
