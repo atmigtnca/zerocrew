@@ -38,14 +38,16 @@
 5. **변환** — hwpx MCP 서버로 최종 hwpx 파일 생성
 
 ## 에이전트 & 스킬
-- `.claude/agents/` — 전문 서브에이전트 5종 (시장조사, 전략, 재무, 검토, 통합)
-- `.claude/skills/` — 도메인 지식 스킬 4종 (시장조사, 경쟁분석, 재무, 문서품질)
+- `.claude/agents/` — 전문 서브에이전트 6종 (시장조사, 전략, 재무, 검토, 통합, hwpx변환)
+- `.claude/skills/` — 도메인 지식 스킬 5종 (시장조사, 경쟁분석, 재무, 문서품질, hwpx변환)
 - 자연스럽게 작업하면 관련 스킬이 자동 트리거됨
 
 ## hwpx 변환
 - `hwpx-mcp-server`가 `.claude/settings.json`에 MCP로 등록되어 있음
 - 사전 설치 필요: `uvx hwpx-mcp-server` 또는 `pip install hwpx-mcp-server`
-- 최종 마크다운 → hwpx 변환 시 서체/줄간격 설정 적용
+- 변환 워크플로우: `hwpx-export` 스킬 → `hwpx-converter` 에이전트 자동 호출
+- 에이전트가 hwpx MCP 도구로 스타일 설정, 제목/문단/테이블 변환, 페이지 구조 설정까지 처리
+- 최종 확인은 한글 프로그램에서 육안 검증 필요
 
 ## 컨벤션
 - 파일명: 한글 허용, 섹션은 00~04 번호 프리픽스

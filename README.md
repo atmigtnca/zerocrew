@@ -46,6 +46,7 @@ assets/          이미지, 도표
 | financial-analyst | 예산 검증, 자금조달 계획 |
 | document-reviewer | 품질 검토, 필수항목 체크, 피드백 |
 | integrator | 최종 통합, 톤/문체 통일 |
+| hwpx-converter | 마크다운 → hwpx 변환 (MCP 활용) |
 
 ## 스킬
 
@@ -55,6 +56,7 @@ assets/          이미지, 도표
 | competitive-analysis | 경쟁사 비교, 포지셔닝 맵 가이드 |
 | financial-planning | 300만원 집행 규정, 금지 항목 |
 | document-quality | 필수항목 체크리스트, 분량/포맷 기준 |
+| hwpx-export | 마크다운 → hwpx 변환 워크플로우 |
 
 ## 제약 조건
 
