@@ -31,15 +31,24 @@ claude
 
 ### PM (00-아이템개요 + 01-팀구성)
 
+**0~10분: 브리프**
 ```
-1. brief.md를 열고 아이템 정보, 팀 정보를 채운다 (전원 함께)
-2. Claude에게:
-   "brief.md 기반으로 drafts/00-아이템개요.md 작성해줘"
-   "brief.md 기반으로 drafts/01-팀구성.md 작성해줘"
-3. 다른 팀원 작업이 끝나면 전체 drafts/ 모아서:
-   "전체 초안 검토해줘" → document-reviewer 동작
-   "최종 통합해줘" → integrator 동작
-   "hwpx로 변환해줘" → hwpx-converter 동작
+brief.md를 열고 아이템 정보, 팀 정보를 채운다 (전원 함께)
+```
+
+**10~80분: 작성**
+```
+"brief.md 기반으로 drafts/00-아이템개요.md 작성해줘"
+"brief.md 기반으로 drafts/01-팀구성.md 작성해줘"
+→ 끝나면 다른 팀원 섹션 지원
+```
+
+**80분~: 수합 → 검토 → 통합 → 변환**
+```
+다른 팀원의 drafts/ 파일을 모은 뒤:
+"전체 초안 검토해줘" → document-reviewer 동작
+"최종 통합해줘" → integrator 동작
+"hwpx로 변환해줘" → hwpx-converter 동작
 ```
 
 ### 시장분석 (02-문제인식)
