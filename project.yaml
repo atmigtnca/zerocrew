@@ -1,181 +1,45 @@
 # === 지원사업 정보 ===
+# /프로젝트설정 명령어로 자동 생성하거나, project.example.yaml을 참고하여 직접 작성하세요.
 program:
-  name: "JBNU 예비창업동아리 지원사업"
-  organization: "JBNU"
-  type: "예비창업동아리"
-  deadline: "2026-04-02"
-  deadline_note: "(목)"
+  name: ""
+  organization: ""
+  type: ""
+  deadline: ""
+  deadline_note: ""
   period:
-    start: "2026-04"
-    end: "2026-11"
-    months: 8
+    start: ""
+    end: ""
+    months:
   submission:
-    location: "JBNU 인터네셔널센터 3층 303호 창업교육센터"
-    method: "방문 제출"
-    documents:
-      - "참여 신청서"
-      - "사업계획서"
-      - "개인정보 동의서"
-      - "참가 서약서"
+    location: ""
+    method: ""
+    documents: []
 
 # === 문서 규격 ===
 document:
   format:
-    font: "중고딕"
-    font_hwpx: "HY중고딕"
-    font_size: 12
-    line_spacing: 160
-    margins: 20
+    font: ""
+    font_hwpx: ""
+    font_size:
+    line_spacing:
+    margins:
   pages:
-    summary: 1
-    body: 5
-    total: 6
-  sections:
-    - id: 0
-      name: "아이템개요"
-      filename: "00-아이템개요.md"
-      label: "사업 아이템 개요"
-      pages: 1.0
-      chars_estimate: "400~500자 + 표"
-      note: "별도 페이지 (요약서)"
-      required_items:
-        - "팀명"
-        - "아이템명"
-        - "아이템 개요 (한 줄)"
-        - "주요 기능 2~3개"
-        - "활동 목표"
-    - id: 1
-      name: "팀구성"
-      filename: "01-팀구성.md"
-      label: "팀 구성"
-      pages: 0.5
-      chars_estimate: "200~300자 + 표"
-      required_items:
-        - "창업자 역량 서술"
-        - "팀원 테이블 (이름, 학과, 역할, 전문성)"
-        - "팀원 3인 이상"
-        - "지도교수 포함"
-        - "시너지 효과 서술"
-    - id: 2
-      name: "문제인식"
-      filename: "02-문제인식.md"
-      label: "문제 인식"
-      pages: 2.5
-      chars_estimate: "1,200~1,500자 + 표/도표"
-      required_items:
-        - "배경 및 동기"
-        - "목적 및 필요성"
-        - "TAM/SAM/SOM 수치"
-        - "시장 성장률/트렌드"
-        - "데이터 출처 명시"
-        - "시장 진입 전략"
-    - id: 3
-      name: "실현가능성"
-      filename: "03-실현가능성.md"
-      label: "실현 가능성"
-      pages: 1.5
-      chars_estimate: "700~900자 + 표"
-      required_items:
-        - "4단계 로드맵"
-        - "경쟁사 비교 테이블 (2개 이상)"
-        - "차별화 포인트"
-        - "자금조달 계획 (과거/현재/미래)"
-    - id: 4
-      name: "사업비편성"
-      filename: "04-사업비편성.md"
-      label: "사업비 편성"
-      pages: 0.5
-      chars_estimate: "200~300자 + 표"
-      required_items:
-        - "항목별 금액 테이블"
-        - "합계 일치"
-        - "항목별 세부 내용/사유"
-        - "외주 항목 구체적 산출물 명시"
+    summary:
+    body:
+    total:
+  sections: []
 
 # === 예산 ===
 budget:
-  total: 3000000
-  total_display: "300만원"
+  total:
+  total_display: ""
   currency: "원"
-  items:
-    - name: "회식비"
-      amount: 300000
-      display: "30만원"
-      category: "회의비"
-      rules:
-        - "1인 1회 5만원 이내"
-        - "총 30만원 한도"
-        - "주류만의 회식 불가, 식사 포함 필수"
-      evidence: "카드전표 + 참석자 명단"
-    - name: "사무비"
-      amount: 300000
-      display: "30만원"
-      category: "사무용품비"
-      rules:
-        - "한도 30만원"
-        - "사무용 소모품만 가능"
-        - "기자재 구입 불가"
-      evidence: "카드전표/영수증"
-    - name: "홍보비"
-      amount: 500000
-      display: "50만원"
-      category: "재료비/인쇄비"
-      rules:
-        - "포스터, 현수막 등 소모성 물품"
-      evidence: "카드전표/영수증"
-    - name: "마케팅 대행"
-      amount: 1100000
-      display: "110만원"
-      category: "외주용역비"
-      rules:
-        - "전자세금계산서 필수"
-        - "구체적 산출물 명시 필요"
-        - "팀이 직접 수행 불가능한 업무만"
-      evidence: "전자세금계산서 + 용역 계약서 + 결과물"
-    - name: "디자인 대행"
-      amount: 800000
-      display: "80만원"
-      category: "외주용역비"
-      rules:
-        - "전자세금계산서 필수"
-        - "구체적 산출물 명시 필요"
-        - "팀이 직접 수행 불가능한 업무만"
-      evidence: "전자세금계산서 + 용역 계약서 + 결과물"
-  prohibited:
-    - item: "기자재 구입"
-      reason: "원천 불가 (노트북, 태블릿, 모니터 등)"
-    - item: "인건비"
-      reason: "예비창업동아리 대부분 불가"
-    - item: "경조사비"
-      reason: "사업 무관"
-    - item: "접대비"
-      reason: "사업 무관"
-    - item: "해외 출장비"
-      reason: "예비창업 단계 부적절"
-  settlement:
-    - "사업 기간 내 집행 건만 인정"
-    - "법인카드 또는 계좌이체 우선 (현금 지양)"
-    - "건별 증빙 보관 (카드전표, 세금계산서, 견적서)"
-    - "지출결의서 작성"
-    - "정산 마감일 준수 (보통 사업 종료 후 1개월)"
+  items: []
+  prohibited: []
+  settlement: []
 
 # === 심사 기준 ===
-scoring:
-  - section: "문제인식"
-    weight: 25
-    focus: "시장 이해, 데이터 근거, 진입 전략"
-  - section: "실현가능성"
-    weight: 25
-    focus: "로드맵 현실성, 경쟁력, 자금 계획"
-  - section: "팀구성"
-    weight: 20
-    focus: "역량, 역할 분담, 시너지"
-  - section: "아이템개요"
-    weight: 15
-    focus: "명확성, 임팩트, 차별성"
-  - section: "사업비편성"
-    weight: 15
-    focus: "적정성, 규정 준수, 구체성"
+scoring: []
 
 # === 팀 구조 ===
 team:
