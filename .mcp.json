@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hwpx": {
+      "command": "/home/ubuntu/.local/bin/uvx",
+      "args": ["hwpx-mcp-server", "--transport", "stdio"]
+    }
+  }
+}

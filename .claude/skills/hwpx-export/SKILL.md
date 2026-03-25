@@ -7,10 +7,10 @@ argument-hint: "[마크다운 파일 경로] (기본: final/사업계획서.md)"
 # hwpx 변환 워크플로우
 
 ## 개요
-`final/사업계획서.md` → hwpx-converter 서브에이전트 호출 → `final/사업계획서.hwpx` 생성
+`final/사업계획서.md` → 한글변환기 서브에이전트 호출 → `final/사업계획서.hwpx` 생성
 
 ## 사전 조건
-- `final/사업계획서.md`가 존재해야 함 (integrator 에이전트로 먼저 통합)
+- `final/사업계획서.md`가 존재해야 함 (문서통합자 에이전트로 먼저 통합)
 - hwpx MCP 서버가 동작 중이어야 함 (`.claude/settings.json`에 등록됨)
 - `pip install hwpx-mcp-server` 또는 `uvx hwpx-mcp-server` 사전 설치
 
@@ -19,10 +19,10 @@ argument-hint: "[마크다운 파일 경로] (기본: final/사업계획서.md)"
 ### Step 1: 소스 확인
 `final/사업계획서.md` 파일을 읽어 내용과 구조를 파악한다.
 
-### Step 2: hwpx-converter 에이전트 호출
-hwpx-converter 서브에이전트를 실행한다. 에이전트에게 전달할 정보:
+### Step 2: 한글변환기 에이전트 호출
+한글변환기 서브에이전트를 실행한다. 에이전트에게 전달할 정보:
 - 마크다운 전체 내용
-- 포맷 규격: 중고딕 12pt, 줄간격 160%
+- 포맷 규격: project.yaml의 document.format 참조
 - 출력 경로: `final/사업계획서.hwpx`
 
 ### Step 3: 검증
@@ -36,19 +36,21 @@ hwpx-converter 서브에이전트를 실행한다. 에이전트에게 전달할 
 - 수동 확인 사항 안내 (한글 프로그램에서 최종 서체/줄간격 확인)
 
 ## 포맷 규격 참조
+project.yaml의 document.format 참조
+
 | 항목 | 값 |
 |------|-----|
-| 서체 | 중고딕 (HYJungGothic 또는 HY중고딕) |
-| 크기 | 12pt |
-| 줄간격 | 160% |
-| 여백 | 상하좌우 20mm |
+| 서체 | project.yaml의 document.format.font_hwpx |
+| 크기 | project.yaml의 document.format.font_size |
+| 줄간격 | project.yaml의 document.format.line_height |
+| 여백 | project.yaml의 document.format.margin |
 | 요약서 | 1페이지 (페이지 나누기 후 본문) |
 
 ## hwpx MCP 도구 매핑
 
 ### 문서 생성 순서
 1. `copy_document` — 빈 템플릿에서 시작 (또는 새 문서)
-2. `create_custom_style` — 본문/제목 스타일 생성 (중고딕 12pt, 줄간격 160%)
+2. `create_custom_style` — 본문/제목 스타일 생성 (project.yaml의 document.format 기준)
 3. `add_heading` — 섹션 제목 추가
 4. `add_paragraph` — 본문 텍스트 추가 (style 지정)
 5. `add_table` — 테이블 추가
