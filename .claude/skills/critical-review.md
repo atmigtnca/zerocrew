@@ -1,24 +1,29 @@
 ---
 name: critical-review
-description: 사업계획서를 악마의 변호인 관점에서 최대한 비판적으로 리뷰. 반론, 비판, 약점찾기, 독설리뷰, 악마의변호인 키워드에 반응.
+description: Devil's advocate review of business plans — maximum criticism from opposing stance. Responds to: 반론, 비판, 약점찾기, 독설리뷰, 악마의변호인.
 user_invocable: true
 ---
 
-# 악마의 변호인 리뷰
+# Devil's Advocate Review
 
-사업계획서의 모든 주장에 반대하는 입장에서 비판적 리뷰를 수행합니다.
+Performs a critical review opposing every claim in the business plan.
 
-## 실행 절차
+## Procedure
 
-1. 리뷰 대상 파일을 확인합니다:
-   - 인자로 파일 경로가 주어지면 해당 파일을 리뷰
-   - 인자가 없으면 `final/사업계획서.md` → `drafts/` → `versions/` 순으로 자동 탐색
+1. Identify review target:
+   - If a file path is given as argument, review that file
+   - If no argument, auto-search: `final/사업계획서.md` → `drafts/` → `versions/`
 
-2. `악마의변호인` 서브에이전트를 호출하여 비판적 리뷰를 수행합니다.
+2. Invoke the `악마의변호인` sub-agent for critical review.
 
-3. 리뷰 결과를 사용자에게 전달합니다.
+3. Deliver review results to the user.
 
-## 주의사항
-- 이 리뷰는 **의도적으로 부정적**입니다. 약점을 찾아 팀이 보강할 수 있도록 하는 것이 목적입니다.
-- 리뷰 결과에 대안은 포함되지 않습니다. 문제 발견만 수행합니다.
-- 대안과 수정은 팀이 직접 하거나, `품질검토관` 에이전트에게 요청하세요.
+## Notes
+- This review is **intentionally negative**. The goal is to find weaknesses so the team can strengthen them before submission.
+- No alternatives are provided — only problem discovery.
+- For alternatives and fixes, use `품질검토관` agent or the commands below.
+
+## Related Workflows
+- `/고도화` — Critique → select → fix loop (max 3 rounds)
+- `/수정 [section] "instruction"` — Quick fix for specific section + auto-verification
+- `/재검토` — Full re-review by 품질검토관 + 악마의변호인

@@ -1,75 +1,81 @@
 ---
 name: hwpx-export
-description: 최종 마크다운 사업계획서를 hwpx(한글) 파일로 변환하는 워크플로우. hwpx, 한글, 변환, export, 제출 파일, 최종 문서 키워드에 반응.
-argument-hint: "[마크다운 파일 경로] (기본: final/사업계획서.md)"
+description: Converts final markdown business plan to hwpx (Hangul) file. Responds to: hwpx, 한글, 변환, export, 제출 파일, 최종 문서.
+argument-hint: "[markdown file path] (default: final/사업계획서.md)"
 ---
 
-# hwpx 변환 워크플로우
+# hwpx Conversion Workflow
 
-## 개요
-`final/사업계획서.md` → 한글변환기 서브에이전트 호출 → `final/사업계획서.hwpx` 생성
+## Overview
+`final/사업계획서.md` → 한글변환기 sub-agent → `final/사업계획서.hwpx`
 
-## 사전 조건
-- `final/사업계획서.md`가 존재해야 함 (문서통합자 에이전트로 먼저 통합)
-- hwpx MCP 서버가 동작 중이어야 함 (`.claude/settings.json`에 등록됨)
-- `pip install hwpx-mcp-server` 또는 `uvx hwpx-mcp-server` 사전 설치
+## Prerequisites
+- `final/사업계획서.md` must exist (run 문서통합자 agent first)
+- hwpx MCP server must be running (registered in `.mcp.json`)
+- Install: `pip install hwpx-mcp-server` or `uvx hwpx-mcp-server`
 
-## 워크플로우
+## Workflow
 
-### Step 1: 소스 확인
-`final/사업계획서.md` 파일을 읽어 내용과 구조를 파악한다.
+### Step 1: Source Verification
+Read `final/사업계획서.md` to understand content and structure.
 
-### Step 2: 한글변환기 에이전트 호출
-한글변환기 서브에이전트를 실행한다. 에이전트에게 전달할 정보:
-- 마크다운 전체 내용
-- 포맷 규격: project.yaml의 document.format 참조
-- 출력 경로: `final/사업계획서.hwpx`
+### Step 2: Invoke 한글변환기 Agent
+Pass to the sub-agent:
+- Full markdown content
+- Format specs from project.yaml `document.format`
+- Output path: `final/사업계획서.hwpx`
 
-### Step 3: 검증
-생성된 hwpx 파일을:
-1. `get_document_info`로 메타데이터 확인
-2. `get_document_outline`로 섹션 구조 확인
-3. `get_document_text`로 내용 누락 여부 확인
+### Step 3: Verification
+Verify the generated hwpx file:
+1. `get_document_info` — check metadata
+2. `get_document_outline` — verify section structure
+3. `get_document_text` — check for missing content
 
-### Step 4: 완료
-- 결과 파일 경로 안내
-- 수동 확인 사항 안내 (한글 프로그램에서 최종 서체/줄간격 확인)
+### Step 4: Completion
+- Report file path
+- Remind: manual verification in Hangul program needed (font, line spacing)
 
-## 포맷 규격 참조
-project.yaml의 document.format 참조
+## Format Specs
+Refer to project.yaml `document.format`:
 
-| 항목 | 값 |
-|------|-----|
-| 서체 | project.yaml의 document.format.font_hwpx |
-| 크기 | project.yaml의 document.format.font_size |
-| 줄간격 | project.yaml의 document.format.line_height |
-| 여백 | project.yaml의 document.format.margin |
-| 요약서 | 1페이지 (페이지 나누기 후 본문) |
+| Item | Value |
+|------|-------|
+| Font | project.yaml `document.format.font_hwpx` |
+| Size | project.yaml `document.format.font_size` |
+| Line spacing | project.yaml `document.format.line_spacing` |
+| Margins | project.yaml `document.format.margins` |
+| Summary | 1 page (page break before body) |
 
-## hwpx MCP 도구 매핑
+## hwpx MCP Tool Mapping
 
-### 문서 생성 순서
-1. `copy_document` — 빈 템플릿에서 시작 (또는 새 문서)
-2. `create_custom_style` — 본문/제목 스타일 생성 (project.yaml의 document.format 기준)
-3. `add_heading` — 섹션 제목 추가
-4. `add_paragraph` — 본문 텍스트 추가 (style 지정)
-5. `add_table` — 테이블 추가
-6. `set_table_cell_text` — 테이블 셀 내용 채우기
-7. `format_table` — 테이블 서식
-8. `add_page_break` — 요약서/본문 사이 페이지 나누기
+### Document Creation Order
+1. `copy_document` — start from blank template
+2. `create_custom_style` — create body/heading styles (per project.yaml format)
+3. `add_heading` — add section titles
+4. `add_paragraph` — add body text (with style)
+5. `add_table` — add tables
+6. `set_table_cell_text` — fill table cells
+7. `format_table` — format tables
+8. `add_page_break` — page break between summary and body
 
-### 마크다운 → hwpx 요소 매핑
-| 마크다운 | hwpx 도구 |
-|---------|----------|
-| `# 제목` | `add_heading` (level=1) |
-| `## 소제목` | `add_heading` (level=2) |
-| 일반 텍스트 | `add_paragraph` |
-| `\| 테이블 \|` | `add_table` + `set_table_cell_text` |
-| `---` (구분선) | `add_page_break` (요약서/본문 구분) |
-| **굵은 텍스트** | `format_text` (bold) |
+### Markdown → hwpx Element Mapping
+| Markdown | hwpx Tool |
+|----------|-----------|
+| `# Title` | `add_heading` (level=1) |
+| `## Subtitle` | `add_heading` (level=2) |
+| Plain text | `add_paragraph` |
+| `\| table \|` | `add_table` + `set_table_cell_text` |
+| `---` (divider) | `add_page_break` (summary/body separator) |
+| **bold** | `format_text` (bold) |
 
-## 주의사항
-- hwpx MCP는 stateless — 모든 도구 호출에 `filename` 명시 필요
-- 한 번에 많은 내용을 추가하면 타임아웃 가능 — 섹션 단위로 나눠서 추가
-- 서체 이름이 시스템에 설치된 정확한 이름과 일치해야 함
-- 최종 확인은 반드시 한글 프로그램에서 열어서 육안 검증
+## Notes
+- hwpx MCP is stateless — `filename` required in every tool call
+- Large content additions may timeout — add in section-sized chunks
+- Font name must match exact system-installed name
+- Final verification must be done visually in Hangul program
+
+## Incremental Update (/한글수정)
+If an hwpx file already exists, apply only changes instead of full regeneration:
+- `/한글수정` detects md changes and applies incremental updates to hwpx
+- MCP tools used: `search_and_replace`, `batch_replace`, `delete_paragraph`, `insert_paragraph`
+- Preserves existing styles — faster and safer than full regeneration

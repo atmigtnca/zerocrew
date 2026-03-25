@@ -1,69 +1,69 @@
 ---
 name: market-research
-description: 시장조사 시 자동 트리거 — TAM/SAM/SOM 추정 프레임워크, 국내 시장 기준 추정 방법론, 출처 검증 가이드라인 제공. 시장규모, 시장분석, TAM, SAM, SOM, 산업분석 키워드에 반응.
+description: Auto-triggers on market research — TAM/SAM/SOM estimation framework, domestic market methodology, source verification guidelines. Responds to: 시장규모, 시장분석, TAM, SAM, SOM, 산업분석.
 ---
 
-# 시장조사 프레임워크
+# Market Research Framework
 
-## TAM/SAM/SOM 개념
-- **TAM** (Total Addressable Market): 전체 시장 규모. 우리 제품이 속한 산업의 총 시장.
-- **SAM** (Serviceable Addressable Market): 접근 가능 시장. TAM 중 우리가 실제 도달할 수 있는 범위.
-- **SOM** (Serviceable Obtainable Market): 획득 가능 시장. SAM 중 1~2년 내 현실적으로 확보할 수 있는 몫.
+## TAM/SAM/SOM Concepts
+- **TAM** (Total Addressable Market): Total market size for the industry our product belongs to.
+- **SAM** (Serviceable Addressable Market): Portion of TAM we can actually reach.
+- **SOM** (Serviceable Obtainable Market): Portion of SAM we can realistically capture in 1-2 years.
 
-## 추정 공식
+## Estimation Formulas
 
-### 하향식 (Top-down)
+### Top-down
 ```
-TAM = 전체 산업 시장 규모 (공식 통계)
-SAM = TAM × 지역 비율 × 타겟 연령 비율 × 채널 비율
-SOM = SAM × 초기 점유율 (0.1~1%)
-```
-
-### 상향식 (Bottom-up) — 더 설득력 있음
-```
-SOM = 타겟 사용자 수 × 전환율 × 객단가 × 12개월
-SAM = 전체 잠재 사용자 수 × 객단가 × 12개월
-TAM = SAM을 포함하는 상위 시장
+TAM = Total industry market size (official statistics)
+SAM = TAM × regional ratio × target age ratio × channel ratio
+SOM = SAM × initial market share (0.1~1%)
 ```
 
-### 대학생 타겟 예시
+### Bottom-up (more persuasive)
 ```
-전국 대학생 수: 약 190만명 (2024 교육통계)
-전북 대학생 수: 약 8만명
-타겟 비율: 30% (관심 있는 학생)
-전환율: 5% (실제 사용)
-월 객단가: 5,000원
-
-SOM = 8만 × 30% × 5% × 5,000원 × 12 = 7,200만원
+SOM = Target users × conversion rate × ARPU × 12 months
+SAM = Total potential users × ARPU × 12 months
+TAM = Parent market containing SAM
 ```
 
-## 국내 통계 출처 (우선순위)
-
-### 1순위: 정부/공공 통계
-- **KOSIS (국가통계포털)**: https://kosis.kr — 인구, 산업, 경제 전반
-- **통계청 e-나라지표**: https://www.index.go.kr — 주요 국가지표
-- **과학기술정보통신부**: https://www.msit.go.kr — IT/SW 산업
-- **교육부 교육통계**: https://kess.kedi.re.kr — 학생 수, 대학 현황
-
-### 2순위: 산업연구기관
-- **한국인터넷진흥원(KISA)**: 인터넷/모바일 이용 실태
-- **정보통신정책연구원(KISDI)**: ICT 산업 통계
-- **한국산업기술평가관리원(KEIT)**: 산업 기술 동향
-- **중소벤처기업부**: 창업/중소기업 통계
-
-### 3순위: 민간 리서치 (무료 공개 범위)
-- **스타티스타(Statista)**: 글로벌+국내 시장 규모
-- **아이지에이웍스 모바일인덱스**: 앱 시장 데이터
-- **와이즈앱**: 앱 사용자 통계
-
-## 출처 표기 형식
+### Example (university student target)
 ```
-(출처: [기관명], "[보고서/데이터명]", YYYY년, URL)
-```
-예: (출처: 한국인터넷진흥원, "2024 인터넷이용실태조사", 2024년, https://www.kisa.or.kr/...)
+National university students: ~1.9M (2024 education statistics)
+Regional students: ~80K
+Target ratio: 30% (interested students)
+Conversion: 5% (actual users)
+Monthly ARPU: 5,000 KRW
 
-## 주의사항
-- 출처 없는 수치 사용 금지
-- 2년 이상 된 데이터는 "[YYYY년 기준]" 명시
-- 추정치는 반드시 계산 과정 공개
-- AI가 만든 가짜 통계 금지 — 검증 불가 시 "확인 필요" 표기
+SOM = 80K × 30% × 5% × 5,000 × 12 = 72M KRW
+```
+
+## Domestic Statistics Sources (Priority Order)
+
+### Tier 1: Government/Public Statistics
+- **KOSIS (National Statistics Portal)**: https://kosis.kr — demographics, industry, economy
+- **Statistics Korea e-Indicators**: https://www.index.go.kr — key national indicators
+- **MSIT (Ministry of Science and ICT)**: https://www.msit.go.kr — IT/SW industry
+- **Education Statistics**: https://kess.kedi.re.kr — student counts, university data
+
+### Tier 2: Industry Research Institutions
+- **KISA (Korea Internet & Security Agency)**: Internet/mobile usage surveys
+- **KISDI (ICT Policy Research)**: ICT industry statistics
+- **KEIT (Korea Evaluation Institute)**: Industry technology trends
+- **MSS (Ministry of SMEs and Startups)**: Startup/SME statistics
+
+### Tier 3: Private Research (free public data)
+- **Statista**: Global + domestic market sizes
+- **IGAWorks Mobile Index**: App market data
+- **WiseApp**: App user statistics
+
+## Source Citation Format
+```
+(Source: [Institution], "[Report/Data Name]", YYYY, URL)
+```
+Example: (Source: KISA, "2024 Internet Usage Survey", 2024, https://www.kisa.or.kr/...)
+
+## Rules
+- No figures without sources
+- Data older than 2 years must note "[as of YYYY]"
+- Estimates must show full calculation process
+- No AI-fabricated statistics — mark as "verification needed" if unverifiable

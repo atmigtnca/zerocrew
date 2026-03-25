@@ -1,57 +1,57 @@
 ---
 name: financial-planning
-description: 예산 편성 시 자동 트리거 — 집행 규정 검증, 항목별 한도와 금지 항목, 자금조달 계획 프레임워크. 예산, 사업비, 자금조달, 비용, 정산 키워드에 반응.
+description: Auto-triggers on budget planning — spending rule verification, item limits, prohibited items, funding plan framework. Responds to: 예산, 사업비, 자금조달, 비용, 정산.
 ---
 
-# 예산 편성 가이드
+# Budget Planning Guide
 
-> 이 스킬의 구체적 수치와 규정은 `project.yaml`의 budget 섹션에 정의되어 있습니다.
+> Specific amounts and rules are defined in `project.yaml` budget section.
 
-## 예산 총액
-project.yaml의 budget.total_display 참조 (초과 불가)
+## Total Budget
+Refer to project.yaml `budget.total_display` (must not exceed)
 
-## 현재 편성안
-project.yaml의 budget.items 참조
+## Current Budget Plan
+Refer to project.yaml `budget.items`
 
-## 항목별 집행 규정
-project.yaml의 budget.items[].rules 참조
+## Spending Rules per Item
+Refer to project.yaml `budget.items[].rules`
 
-### 외주용역비 구체화 가이드
-외주 항목은 반드시 구체적으로 기술해야 합니다:
+### Outsourcing Specificity Guide
+Outsourcing items must be described concretely:
 
-| 모호함 | 구체적 |
-|--------|--------|
-| 마케팅 대행 | SNS 콘텐츠 제작 외주 (인스타 피드 20건 + 릴스 5건) |
-| 디자인 대행 | 브랜드 디자인 외주 (로고 1종 + 명함 + 앱 UI 5화면) |
-| 영상 제작 | 서비스 소개 영상 촬영/편집 외주 (1분 영상 2건) |
+| Vague | Specific |
+|-------|----------|
+| Marketing outsourcing | SNS content creation (20 Instagram feeds + 5 reels) |
+| Design outsourcing | Brand design (1 logo + business cards + 5 app UI screens) |
+| Video production | Service intro video filming/editing (2 videos, 1 min each) |
 
-- **핵심**: 전자세금계산서 필수 발행
-- **증빙**: 전자세금계산서 + 용역 계약서 + 결과물
+- **Key**: Electronic tax invoice (전자세금계산서) required
+- **Evidence**: Tax invoice + service contract + deliverables
 
-## 금지 항목
-project.yaml의 budget.prohibited 참조
+## Prohibited Items
+Refer to project.yaml `budget.prohibited`
 
-## 자금조달 계획 프레임워크
+## Funding Plan Framework
 
-### 3시점 구조
-| 시점 | 설명 | 예시 |
-|------|------|------|
-| **과거** | 이전 투자/지원금 | 학생팀은 0원이 정상 |
-| **현재** | 본 지원사업 + 자부담 | 지원금 + 팀원 출자 |
-| **미래 1년** | 후속 자금 조달 계획 | 창업경진대회, 추가 지원사업 |
+### 3-Timepoint Structure
+| Timepoint | Description | Example |
+|-----------|-------------|---------|
+| **Past** | Previous investments/grants | New teams: 0 is normal |
+| **Present** | This grant + self-funding | Grant amount + team contributions |
+| **Future 1yr** | Follow-up funding plans | Competitions, additional grants |
 
-### 후속 자금 소스 (학생팀 활용 가능)
-| 소스 | 금액 범위 | 시기 | 비고 |
-|------|----------|------|------|
-| 교내 창업경진대회 | 100~500만원 | 수시 | 대학마다 다름 |
-| 창업진흥원 초기창업패키지 | 최대 1억원 | 매년 상반기 | 예비/초기 창업자 |
-| 지역 창업지원센터 | 100~1,000만원 | 수시 | 전북창조경제혁신센터 등 |
-| TIPS (민간투자주도형) | 최대 5억원 | 수시 | 기술 기반 스타트업 |
-| 교내 창업보육센터 | 사무 공간 + 멘토링 | 수시 | 간접 지원 |
+### Follow-up Funding Sources (Examples)
+| Source | Amount Range | Timing | Note |
+|--------|-------------|--------|------|
+| University startup competition | 1~5M KRW | Rolling | Varies by university |
+| KISED Early Startup Package | Up to 100M KRW | H1 annually | Pre/early-stage startups |
+| Regional startup support center | 1~10M KRW | Rolling | Local innovation centers |
+| TIPS (Private-led) | Up to 500M KRW | Rolling | Tech-based startups |
+| University incubation center | Office space + mentoring | Rolling | Indirect support |
 
-## 정산 주의사항
-- 사업 기간(project.yaml의 program.period 참조) 내 집행 건만 인정
-- 법인카드 또는 계좌이체 우선 (현금 지양)
-- 건별 증빙 보관 (카드전표, 세금계산서, 견적서)
-- 지출결의서 작성 (사업비 관리 양식)
-- 정산 마감일 준수 (보통 사업 종료 후 1개월)
+## Settlement Notes
+- Only expenditures within project period (ref: project.yaml `program.period`) are valid
+- Corporate card or bank transfer preferred (avoid cash)
+- Keep per-transaction evidence (card receipts, tax invoices, quotes)
+- Write expenditure reports (budget management forms)
+- Comply with settlement deadline (typically 1 month after project end)

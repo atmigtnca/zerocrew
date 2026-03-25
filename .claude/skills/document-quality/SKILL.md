@@ -1,49 +1,54 @@
 ---
 name: document-quality
-description: 사업계획서 작성/검토 시 자동 트리거 — 필수항목 체크리스트, 분량 기준, 포맷 규격, 제출 요건. 체크리스트, 검토, 제출, 포맷 키워드에 반응.
+description: Auto-triggers on business plan writing/review — required-item checklist, page limits, format specs, submission requirements. Responds to: 체크리스트, 검토, 제출, 포맷.
 ---
 
-# 사업계획서 품질 기준
+# Business Plan Quality Standards
 
-> 문서 규격, 분량, 필수항목, 심사 기준은 `project.yaml`에 정의되어 있습니다.
+> Document specs, page limits, required items, and scoring criteria are defined in `project.yaml`.
 
-## 포맷 규격
-project.yaml의 document.format 참조
+## Format Specs
+Refer to project.yaml `document.format`
 
-## 분량 배분 가이드
-project.yaml의 document.sections[].pages 참조
+## Page Allocation
+Refer to project.yaml `document.sections[].pages`
 
-## 필수항목 체크리스트
-project.yaml의 document.sections[].required_items 참조
+## Required Items Checklist
+Refer to project.yaml `document.sections[].required_items`
 
-### 공통
-- [ ] "작성방법" 안내 표 삭제
-- [ ] 아이템명 전 섹션 통일
-- [ ] 팀명 전 섹션 통일
-- [ ] 숫자/통계 출처 표기
+### Common Checks
+- [ ] "작성방법" instruction tables removed
+- [ ] Item name consistent across all sections
+- [ ] Team name consistent across all sections
+- [ ] All statistics/numbers have sources cited
 
-## 심사 기준
-project.yaml의 scoring 참조
+### Writing Style
+- [ ] First-person team perspective ("본 팀"/[team name]) — no third-person observer voice
+- [ ] Formal style (~합니다/~입니다) only — no report style (~임/~함), academic (~이다), or casual (~해요)
 
-> 문제인식 + 실현가능성 = 50%. 이 두 섹션에 가장 공을 들여야 합니다.
+## Scoring Criteria
+Refer to project.yaml `scoring`
 
-## 제출 요건
-project.yaml의 program 참조 (마감일, 제출처, 서류 목록)
+> 문제인식 + 실현가능성 = 50%. These two sections deserve the most effort.
 
-## 사업비 항목
-- 합계 = project.yaml의 budget.total_display
-- 항목별 세부 내용 및 외주 항목 구체적 산출물 명시
+## Submission Requirements
+Refer to project.yaml `program` (deadline, location, document list)
 
-## 감점 주의사항
-- "작성방법" 설명 표 미삭제 → 감점
-- 분량 초과 → 감점 가능
-- 필수항목 누락 → 감점
-- 예산 합계 불일치 → 감점
-- 팀원 3인 미만 → 자격 미달
+## Budget Items
+- Total must equal project.yaml `budget.total_display`
+- Each item needs detailed description; outsourcing items need specific deliverables
 
-## 검토 방법론
-1. 포맷 규격 준수 확인 (project.yaml의 document.format 대조)
-2. 섹션별 분량 확인 (project.yaml의 document.sections[].pages 대조)
-3. 필수항목 체크리스트 순서대로 확인
-4. 심사 기준 배점 기준으로 섹션별 완성도 평가
-5. 감점 주의사항 최종 점검
+## Deduction Warnings
+- "작성방법" instruction tables not removed → deduction
+- Exceeding page limit → possible deduction
+- Missing required items → deduction
+- Budget total mismatch → deduction
+- Fewer than minimum team members → disqualification
+
+## Review Methodology
+1. Verify format compliance (compare against project.yaml `document.format`)
+2. Check section page lengths (compare against project.yaml `document.sections[].pages`)
+3. Walk through required items checklist in order
+4. Evaluate section completeness by scoring criteria weights
+5. Final check on deduction warnings
+6. Writing style review (first-person team perspective, formal endings consistency)
